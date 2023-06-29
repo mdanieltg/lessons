@@ -17,3 +17,9 @@ Directorio de trabajo: UsingStatements
 - Using statements
 
 ## Miércoles 28 de junio
+
+- Git aliases
+- Git exclude (local ignore)
+- Syntactic sugar
+- Sharplab.io
+- Reto Arcade Intro 5 de CodeSignal
