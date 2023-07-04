@@ -16,6 +16,7 @@ public static class My
     // OrderBy
     public static IEnumerable<T> OrderBy<T, TSelector>(this IEnumerable<T> collection, Func<T, TSelector> selector)
     {
+        // TODO: Mejorar algoritmo de ordenamiento
         var sortedList = new SortedSet<T>();
         foreach (var item in collection)
         {
@@ -23,6 +24,8 @@ public static class My
         }
         return sortedList.ToList();
     }
+
+    // TODO: Crear método OrderByDescending
 
     // First
     public static T First<T>(this IEnumerable<T> collection, Func<T, bool> condition)
@@ -55,4 +58,12 @@ public static class My
     }
 
     // Select
+    public static IEnumerable<TSelector> Select<T, TSelector>(this IEnumerable<T> collection, Func<T, TSelector> selector)
+    {
+        var list = new List<TSelector>();
+        foreach (var item in collection)
+            list.Add(selector(item));
+
+        return list;
+    }
 }

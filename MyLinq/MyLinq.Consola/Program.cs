@@ -26,8 +26,8 @@ var result = data
 // foreach (var item in result)
 Console.WriteLine($"The first item is {result}.");
 
-var humans = new Human[]
 // var humans = new List<Human>()
+var humans = new Human[]
 {
     new Human{ Name = "Pablito", Age = 18 },
     new Human{ Name = "Neri", Age = 32 },
