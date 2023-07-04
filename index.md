@@ -23,3 +23,9 @@ Directorio de trabajo: UsingStatements
 - Syntactic sugar
 - Sharplab.io
 - Reto Arcade Intro 5 de CodeSignal
+
+## Lunes 3 de julio
+
+- Extension methods
+- Linq personalizado
+- foreach es un monstruo
