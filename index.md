@@ -29,3 +29,8 @@ Directorio de trabajo: UsingStatements
 - Extension methods
 - Linq personalizado
 - foreach es un monstruo
+
+## Miércoles 5 de julio
+
+- Algoritmos de ordenamiento: MergeSort
+- Array.Copy(...)
