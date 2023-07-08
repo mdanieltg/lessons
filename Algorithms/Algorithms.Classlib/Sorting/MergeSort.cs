@@ -13,16 +13,12 @@ public static class MergeSort
         var leftArray = new int[mid];
         var rightArray = new int[array.Length - mid];
 
-        // Fill arrays (effectively dividing array by half)
+        // Fill arrays (effectively dividing main array by half)
         Array.Copy(array, leftArray, mid);
         Array.Copy(array, mid, rightArray, 0, rightArray.Length);
 
-        // Recursively call MergeSort
-        var newLeftArray = Sort(leftArray);
-        var newRightArray = Sort(rightArray);
-
-        // Merge and sort arrays
-        return Merge(newLeftArray, newRightArray);
+        // Call Sort on each side of the array, and merge them back together
+        return Merge(Sort(leftArray), Sort(rightArray));
     }
 
     public static int[] Merge(int[] arrA, int[] arrB)
@@ -32,37 +28,26 @@ public static class MergeSort
 
         while (indexA < arrA.Length && indexB < arrB.Length)
         {
-            var itemA = arrA[indexA];
-            var itemB = arrB[indexB];
+            if (arrA[indexA] < arrB[indexB])
+                array[index++] = arrA[indexA++];
 
-            if (itemA == itemB)
-            {
-                array[index++] = itemA;
-                array[index++] = itemB;
-                indexA++;
-                indexB++;
-            }
-            else if (itemA < itemB)
-            {
-                array[index++] = itemA;
-                indexA++;
-            }
+            else if (arrA[indexA] > arrB[indexB])
+                array[index++] = arrB[indexB++];
+
             else
             {
-                array[index++] = itemB;
-                indexB++;
+                array[index++] = arrA[indexA++];
+                array[index++] = arrB[indexB++];
             }
         }
 
+        // Missing items from arrA
         if (indexA < arrA.Length)
-        {
             Array.Copy(arrA, indexA, array, index, arrA.Length - indexA);
-        }
 
-        else if (indexB < arrB.Length)
-        {
+        // Missing items from arrB
+        if (indexB < arrB.Length)
             Array.Copy(arrB, indexB, array, index, arrB.Length - indexB);
-        }
 
         return array;
     }
